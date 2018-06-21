@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %} {{ config.SITE_TITLE }} {% endblock %}
+{% block page_description %} {{ config.SITE_DESCRIPTION }} {% endblock %}
+{% block page_keywords %} {{ config.SITE_KEYWORDS }} {% endblock %}
+
+{% block content %}
+
+    <div class="content-wrapper">
+        <div class="container">
+            <div class="section-header divider">
+                <h1>Follow</h1>
+            </div>
+            <!-- LightWidget WIDGET --><script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/d3129fd145ba54de90a6df2291fb948e.html" allowtransparency="true" class="lightwidget-widget" style="width: 100%; border: 0; overflow: hidden;"></iframe>
+        </div>
+    </div>
+
+{% endblock %}

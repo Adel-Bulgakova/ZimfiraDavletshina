@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "Avenir LT W01_35 Light1475496";
+  font-style: normal;
+  font-weight: 300;
+  src: url(../fonts/avenir-light.ttf); }
+@font-face {
+  font-family: 'Avenir-Light';
+  src: url("../fonts/AvenirLTStd-Light.otf"); }
+@font-face {
+  font-family: 'Avenir-LightItalic';
+  src: url("../fonts/AvenirLTStd-LightOblique.otf"); }
+
+/*# sourceMappingURL=fonts.css.map */

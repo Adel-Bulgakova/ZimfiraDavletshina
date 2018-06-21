@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+	{% block title %} Zimfira Davletshina | {{ category_instance.title }} {% endblock %}
+	{% block page_description %}{{ category_instance.subtitle }}{% endblock %}
+
+    {% block css %}
+        <link rel="stylesheet" href="{% static 'libs/lightgallery/css/lightgallery.css' %}">
+        <link rel="stylesheet" href="{% static 'libs/lightgallery/css/lg-transitions.css' %}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.2/css/all.css">
+    {% endblock %}
+    {% block meta-data %}
+        <meta property="og:url" content="{{ request.build_absolute_uri }}">
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="{{ category_instance.title }}">
+        <meta property="og:description" content="{{ category_instance.subtitle }}">
+        <meta property="og:image" content="{{ instance.category_item.url  }}">
+    {% endblock %}
+{% block sidebar %}{% endblock %}
+{% block header %}{% endblock %}
+{% block content %}
+    <img src="{{ instance.category_item.url }}" alt="{{ instance.category_item_name }}" width="100%" style="opacity: 0"/>
+{% endblock %}
+
+{% block footer %}{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'libs/lightgallery/js/lightgallery.js' %}"></script>
+    <script>
+    $(document).ready(function() {
+        var $lg = $(this).lightGallery({
+            actualSize: false,
+            autoplay: false,
+            download: false,
+            hash: false,
+            googlePlus: false,
+            thumbnail: false,
+            closable: false,
+            dynamic: true,
+            index: {{ instance_index }},
+            dynamicEl: [
+                {% if gallery_elements %}
+                    {% for el in gallery_elements %}
+                        {% if  el.is_video %}
+                            {
+                                'src': '{{ el.video_link }}',
+                                'poster': '{{ el.category_item.url }}',
+                                'subHtml': '{{ el.category_item_name }}',
+                                'tweetText': '{{ instance_link_text }}',
+                                'pinterestText': '{{ instance_link_text }}'
+
+                            },
+                            {% else %}
+                            {
+                                'src': '{{ el.category_item.url }}',
+                                'subHtml': '{{ el.category_item_name }}',
+                                'tweetText': '{{ instance_link_text|safe }}',
+                                'pinterestText': '{{ instance_link_text|safe }}'
+                            },
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            ]
+        });
+        $lg.on('onCloseAfter.lg',function(event, index, fromTouch, fromThumb){
+            window.location.replace("{{ category_url }}");
+        });
+    });
+    </script>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %} {{ config.SITE_TITLE }} {% endblock %}
+{% block page_description %} {{ config.SITE_DESCRIPTION }} {% endblock %}
+{% block page_keywords %} {{ config.SITE_KEYWORDS }} {% endblock %}
+
+{% block content %}
+
+<div class="content-wrapper">
+    <div class="container about">
+        <div class="section-header divider">
+            <h1>ABOUT</h1>
+        </div>
+
+        <div class="content">
+            <div class="left-col"><img src="{% static 'images/h8f5sg.jpg' %}" alt="Zimfira Davletshina"></div><div class="right-col"><div>{{ config.ABOUT|safe }}</div></div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

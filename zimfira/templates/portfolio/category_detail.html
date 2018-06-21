@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+	{% block title %} Zimfira Davletshina | {{ category.title }} {% endblock %}
+	{% block page_description %}{{ category.subtitle }}{% endblock %}
+    {% block page_keywords %}{{ category.keywords }}{% endblock %}
+
+    {% block css %}
+        <link rel="stylesheet" href="{% static 'libs/lightgallery/css/lightgallery.css' %}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.2/css/all.css">
+    {% endblock %}
+
+	{% block content %}
+
+<div class="content-wrapper">
+
+    <div class="section-header background-header ">
+
+        <div class="container divider">
+            <nav class="breadcrumbs">
+                <a href="/portfolio/"><span>Portfolio ></span></a>
+                    {% if category.get_ancestors|length > 0 %}
+                        {% for ancestor in category.get_ancestors %}
+                            <a class="featured-works" href="{{ ancestor.get_absolute_url }}"><span>{{ ancestor.title }} ></span></a>
+                        {% endfor %}
+
+                    {% endif %}
+                <a class="featured-works active"><span>{{ category.title }}</span></a>
+            </nav>
+        </div>
+    </div>
+
+    {% if category_data %}
+
+        <div id="screen-featured-works" class="container grid-thumbnails">
+            {% for category_item in category_data %}{% with slide_number=forloop.counter0|stringformat:"s" item_pk=category_item.pk|stringformat:"s" %}{% with data_url=request.build_absolute_uri|add:"#lg=1&slide="|add:slide_number  data_fb_url=item_detail_path|add:item_pk|add:"/" %}<a class="entry ajax" href="{{ category_item.category_item.url }}" data-sub-html="{{ category_item.category_item_name }}"><div class="placeholder"><div class="image"><img class="" alt="" data-original="{{ category_item.category_item.url }}" src="{{ category_item.category_item.url }}"></div></div></a>{% endwith %}{% endwith %}{% endfor %}
+        </div>
+
+    {% else %}
+    <div class="container">
+        No items
+    </div>
+    {% endif %}
+
+    {% if subcategories_data %}
+        <section class="subcategories">
+            <div class="container">
+                <div class="section-header divider">
+                    <h4>Subcategories</h4>
+                </div>
+            </div>
+
+            <div class="container grid-categories">
+                {% for subcategory in subcategories_data %}<div class="entry">
+                <div class="thumbnail"><div class="image">
+                    <a href="{{ subcategory.get_absolute_url }}">
+                        <img alt="{{ subcategory.title}}" src="{{ subcategory.thumbnail.url}}" srcset="{{ subcategory.thumbnail.url}} 1x, {{ subcategory.thumbnail.url}} 2x">
+                        <div class="info"><h1>{{ subcategory.title}}</h1></div>
+                    </a>
+                </div></div></div>{% endfor %}
+            </div>
+        </section>
+
+    {% endif %}
+
+    {% if category.subtitle %}
+        <section id="category-information">
+            <div class="container ">
+                <div class="section-header divider">
+                    <h4>Information</h4>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="text-one-column">
+                    {{ category.subtitle|linebreaksbr }}
+                </div>
+            </div>
+        </section>
+    {% endif %}
+
+</div>
+    {% endblock %}
+
+    {% block scripts %}
+    {% endblock %}

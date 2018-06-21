@@ -1,0 +1,56 @@
+/* CONTACT */
+.contact {
+  text-align: center;
+  padding-bottom: 50px;
+  &:after {
+    @extend .block-after;
+  }
+
+  p {
+    margin-bottom: 50px;
+  }
+
+  input[type="email"], textarea {
+    display: block;
+    background: $default-bg;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    font-size: 13px;
+    height: 37px;
+    margin: 0 auto 15px;
+    padding: 10px;
+    width: 50%;
+
+    &:focus{
+      outline-color: #9C9C9C;
+    }
+  }
+
+  textarea {
+    height: auto;
+  }
+
+  button {
+    display: block;
+    width: 50%;
+    background-color: $detailed-element-bg;
+    border: 1px solid $detailed-element-bg;
+    border-radius: 1px;
+    color: $text-color;
+    padding: 1% 25px;
+    margin: 0 auto 15px;
+
+    &:focus{
+      outline-color: #9C9C9C;
+    }
+  }
+}
+
+/* sm */
+@media all and (max-width: 768px) {
+  .contact input[type="email"], .contact textarea {
+    width: 100%;
+  }
+}

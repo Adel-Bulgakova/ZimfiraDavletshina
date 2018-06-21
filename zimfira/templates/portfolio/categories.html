@@ -1,0 +1,18 @@
+{% if categories %}
+
+    {% for category in categories %}
+
+        <div class="entry ">
+            <div class="thumbnail">
+                <div class="image">
+                    <a href="{{ category.get_absolute_url }}"><img alt="{{ category.title }}" src="{{ category.thumbnail.url}}" srcset="{{ category.thumbnail.url}} 1x, {{ category.thumbnail.url}} 2x" ></a>
+                </div>
+            </div>
+            <div class="info">
+                <h1>{{ category.title }}</h1>
+            </div>
+        </div>
+
+    {% endfor %}
+
+{% endif %}

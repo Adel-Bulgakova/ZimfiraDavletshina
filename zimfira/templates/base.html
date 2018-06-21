@@ -1,0 +1,115 @@
+{% load staticfiles %}
+{% load categories_list %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}{{ config.SITE_TITLE }}{% endblock %}</title>
+    <meta name="description" content="{% block page_description %}{{ config.SITE_DESCRIPTION }}{% endblock %}">
+    <meta name="keywords" content="{% block page_keywords %}{{ config.SITE_KEYWORDS }}{% endblock %}">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, user-scalable=yes" name="viewport">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'bundle/main.min.css' %}" >
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+
+    {% block css %}
+    {% endblock %}
+
+    {% block header_scripts %}
+    {% endblock %}
+
+
+</head>
+<body>
+
+{% block header_announcement %}
+<div class="header-announcement"></div>
+{% endblock %}
+
+{% block header %}
+
+    <header class="main-header">
+        <div class="container">
+            <a class="logo" href="/">
+                <img class="alt-standard" alt="Zimfira Davletshina" src="{% static 'images/logo.png' %}" width="600"/>
+            </a><nav class="main">
+                <a href="/portfolio/">PORTFOLIO</a>
+                <a href="/about/">About</a>
+                <a href="/follow/">Follow</a>
+                <a href="/contact/">Contact</a>
+            </nav>
+            <div class="mobile-menu-wrapper">
+                <nav class="mobile">
+                    <a class="menu" href="#">Menu</a>
+                    <div class="navlinks">
+                        <a href="/portfolio/">PORTFOLIO</a>
+                        <a href="/about/">About</a>
+                        <a href="/follow/">Follow</a>
+                        <a href="/contact/">Contact</a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+{% block footer %}
+     <footer class="divider">
+         <div class="container clearfix">
+             <div class="footer-cols">
+                 <div class="footer-col">
+                     <h4 class="divider">UFA |&nbsp;RUSSIA</h4>
+                     <p>
+                         <span>tel +7-937-344-30-15</span>
+                     </p>
+                 </div>
+             </div>
+             <div class="footer-social"><a href="https://www.facebook.com/" target="_blank"><img src="{% static 'images/icons/icon-fb.png' %}" alt="Facebook"/></a><a href="https://www.instagram.com/zimfira_davletshina/" target="_blank"><img src="{% static 'images/icons/icon-inst.png' %}" alt="Instagram"/></a><a href="/contact/" target="_blank"><img src="{% static 'images/icons/icon-email.png' %}" alt="Write email"/></a>
+             </div>
+         </div>
+        </footer>
+{% endblock %}
+
+    <a id="back-to-top" href="#top">Back To Top</a>
+
+    {% block scripts %}{% endblock %}
+    <script src="{% static 'bundle/bundle.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-beta.2/lazyload.js"></script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter49286314 = new Ya.Metrika2({
+                    id:49286314,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/tag.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks2");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/49286314" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+    </body>
+</html>

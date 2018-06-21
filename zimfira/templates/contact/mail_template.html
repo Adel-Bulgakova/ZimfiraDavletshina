@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width"/>
+
+    <style type="text/css">
+    * { margin: 0; padding: 0; font-size: 100%; font-family: 'HelveticaNeue','Helvetica Neue',Helvetica,Arial,sans-serif; line-height: 1.65; font-style:normal;}
+    img { width: 70%; margin: 0 auto; display: block; }
+    body, .body-wrap { width: 100% !important; height: 100%; background: #f8f8f8; }
+    .button { display: inline-block; color: white; background: #177063; border: 1px solid #143427;
+        padding: 10px 20px 8px; border-radius: 4px; }
+    .button:hover { text-decoration: none; }
+    h1, h2, h3, h4, h5, h6 { margin-bottom: 20px; line-height: 1.25; }
+    h4 { font-size: 20px; }
+    a {text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    p { font-size: 16px; font-weight: normal; color: #3c3c3c; margin-bottom: 20px; }
+    .container { display: block !important; clear: both !important; margin: 0 auto !important; max-width: 580px !important; }
+    .container table { width: 100% !important; border-collapse: collapse; }
+    .container .masthead {color: white; text-align: center; }
+    .container .masthead .wrap{ width: 100%; height: 100%; padding: 20px 0; background: rgba(0, 0, 0, 0.4);}
+    .container .content { background: #FFFFFF; padding: 30px 35px; }
+    </style>
+</head>
+<body>
+<table class="body-wrap">
+    <tr>
+        <td class="container">
+
+            <table>
+                <tr>
+                    <td align="center" class="masthead">
+
+                        <div class="wrap">
+                            <img src="http://zimfiradavletshina.ru/static/images/logo-white.png" width="150">
+                        </div>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="content">
+
+                        <h4 style="color: #3c3c3c;">You have new message</h4>
+
+                        <p style="color: #3c3c3c;"><b>Message from:</b> <a href="https://mail.google.com/mail/?view=cm&fs=1&to={{ email }}&su=Answer+from+Zimfira+Davletshina" target='_blank' style="color: #888">{{ email }}</a></p>
+
+                        <p style="color: #3c3c3c;"><b>Text:</b> {{ message }}</p>
+
+                        <table>
+                            <tr>
+                                <td align="center" style="padding-top: 45px;">
+                                    <p>
+                                        <a class="button" href="https://mail.google.com/mail/?view=cm&fs=1&to={{ email }}&su=Answer+from+Zimfira+Davletshina" target='_blank'>Click here to answer</a>
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+
+</table>
+</body>
+</html>

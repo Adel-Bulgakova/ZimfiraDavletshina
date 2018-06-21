@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %} {{ config.SITE_TITLE }} {% endblock %}
+{% block page_description %} {{ config.SITE_DESCRIPTION }} {% endblock %}
+{% block page_keywords %} {{ config.SITE_KEYWORDS }} {% endblock %}
+
+{% block header_announcement %}
+<div class="header-announcement"></div>
+{% endblock %}
+
+{% block content %}
+
+        <div class="content-wrapper">
+            <div class="container outside">
+                <div id="slidecaption" class="caption"></div>
+                <div id="view-more-block"><a href="#homepage-portfolio">View More</a></div>
+            </div>
+            <div id="homepage-portfolio" class="container grid-categories">
+
+                {% if categories %}
+
+                    {% for category in categories %}<div class="entry "><div class="thumbnail"><div class="image"><a href="{{ category.get_absolute_url }}"><img alt="{{ category.title }}" src="{{ category.thumbnail_url}}" srcset="{{ category.thumbnail_url}} 1x, {{ category.thumbnail_url}} 2x" ></a></div></div><div class="info"><h1>{{ category.title }}</h1></div></div>{% endfor %}
+
+                {% endif %}
+
+            </div>
+        </div>
+
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        var images = [
+        {"image":"{% static 'images/9831f9_.jpg' %}","title":"<a href='/portfolio/abstraction/'><h1>Flower<\/h1><h3><p>gouache<\/p><\/h3><\/a>","url":"/portfolio/abstraction/"},
+        {"image":"{% static 'images/5b878d_.jpg' %}","title":"<a href='/portfolio/abstraction/'><h1>Abstraction<\/h1><h3><p>watercolor<\/p><\/h3><\/a>","url":"/portfolio/abstraction/"},
+        {"image":"{% static 'images/411629_.jpg' %}","title":"<a href='/portfolio/watercolor/'><h1>East Still-Life<\/h1><h3><p>watercolor<\/p><\/h3><\/a>","url":"/portfolio/watercolor/"},
+        {"image":"{% static 'images/d3048c_.jpg' %}","title":"<a href='/portfolio/oil-paint/'><h1>Landscape<\/h1><h3><p>gouache<\/p><\/h3><\/a>","url":"/portfolio/oil-paint/"}];
+    </script>
+{% endblock %}
